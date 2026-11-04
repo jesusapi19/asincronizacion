@@ -1,23 +1,35 @@
-const esperar = (ms, mensaje) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log(mensaje);
-            resolve("Ya termine")
-        }, ms);
-    })
+// console.log('1. Pido la pizza');
+// setTimeout(() => {
+// console.log('2. La pizza está lista');
+// }, 2000); // ¡cero milisegundos!
+// console.log('3. Mientras tanto, veo televisión');
+
+// function recibirMensaje(callback) { 
+// console.log('Esperando mensaje en WhatsApp...');
+// setTimeout(() => { 
+//     console.log('Mensaje recibido'); 
+//     callback(); // se llama solo cuando el mensaje llegó 
+// }, 3000); 
+// }  
+// function leerMensaje() { 
+// console.log('Leyendo mensaje...'); 
+// }  
+// recibirMensaje(leerMensaje); console.log('Sigo usando el celular'); 
+
+function dividir(a, b, callback) {
+    setTimeout(() => {
+        if (b === 0) {
+            callback(new Error('No se puede dividir entre cero'), null);
+            return;
+        }
+callback(null, a / b);
+    }, 1000);
 }
 
-const main = async () => {
-    try {
-        console.log('Inicio del programa')
-        await esperar(3000, "Primer timeout")
-        await esperar(5, "Segundo timeout")
-        await esperar(0, "Tercer timeout")
-        console.log('Fin del programa');
-    } catch (error) {
-        console.log(error);
+dividir(10, 2, (err, resultado)=> {
+    if (err) {
+        console.log('Error:', err.message);
+        return;
     }
-
-}
-
-main()
+    console.log('Resultado:', resultado);
+});
