@@ -94,3 +94,87 @@
 //     obtenerPedidos(usuario); 
 // })
 // .then((pedidos) => console.log(pedidos));
+
+//4//
+// async function saludar() {   
+//     return 'Hola'; 
+// } 
+// console.log(saludar());
+// saludar() 
+// .then((texto) =>
+// console.log(texto)); 	 
+
+//la misma cadena de la parte 3//
+
+// async function mostrarCostoEnvio(idUsuario) {   
+//     try { 
+//     const usuario = await obtenerUsuario(idUsuario);     
+//     const pedidos = await obtenerPedidos(usuario);     
+//     const detalle = await obtenerDetalle(pedidos[0]);     
+//     const envio = await calcularEnvio(detalle);     
+//     console.log('Costo de envío:', envio); 
+// } catch (err) { 
+// await console.log(err.message); 
+// } 
+// } 
+
+
+//secuencial y paralelo//ejemplo//
+
+
+// const esperar = (ms, valor) => 
+// new Promise((resolve) => setTimeout(() => resolve(valor), ms)); 
+
+// async function secuencial() { 
+// console.time('Tiempo Secuencial');
+// const clima = await esperar(1000, 'Soleado');   
+// const noticias = await esperar(2000, '5 noticias');   
+// console.log(clima, noticias); 
+// console.timeEnd('Tiempo Secuencial');
+// } 
+
+// async function paralelo() { 
+// console.time('Tiempo Paralelo');
+// const [clima, noticias] = await Promise.all([    
+// esperar(1000, 'Soleado'),    
+// esperar(2000, '5 noticias'), 
+// ]); 
+// console.log(clima, noticias); 
+// console.timeEnd('Tiempo Paralelo');
+// } 
+
+// async function probar() {
+// console.log('--- Ejecutando Secuencial ---');
+// await secuencial();
+
+// console.log('\n--- Ejecutando Paralelo ---');
+// await paralelo();
+// }
+
+// probar();
+
+//trampa:await dentro de forEach//
+
+// async function mal(ids) {
+// ids.forEach(async (id) => {
+//     const producto = await obtenerProducto(id);
+//     console.log(producto.nombre);
+// });
+// console.log('Terminado');
+// }
+
+// async function bienSecuencial(ids) {
+// for (const id of ids) {
+//     const producto = await obtenerProducto(id);
+//     console.log(producto.nombre);
+// }
+// console.log('Terminado');
+// }
+
+// async function bienParalelo(ids) {
+// const productos = await Promise.all(ids.map((id) => obtenerProducto(id)));
+// productos.forEach((p) => console.log(p.nombre));
+// console.log('Terminado');
+// }
+
+//caso estuidio: empleados y salarios//
