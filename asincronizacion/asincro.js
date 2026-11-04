@@ -1,3 +1,4 @@
+//1//
 // console.log('1. Pido la pizza');
 // setTimeout(() => {
 // console.log('2. La pizza está lista');
@@ -16,31 +17,61 @@
 // }  
 // recibirMensaje(leerMensaje); console.log('Sigo usando el celular'); 
 
-function dividir(a, b, callback) {
-    setTimeout(() => {
-        if (b === 0) {
-            callback(new Error('No se puede dividir entre cero'), null);
-            return;
-        }
-callback(null, a / b);
-    }, 1000);
-}
+//2//
 
-dividir(10, 2, (err, resultado)=> {
-    if (err) {
-        console.log('Error:', err.message);
-        return;
-    }
-    console.log('Resultado:', resultado);
-});
+// function dividir(a, b, callback) {
+//     setTimeout(() => {
+//         if (b === 0) {
+//             callback(new Error('No se puede dividir entre cero'), null);
+//             return;
+//         }
+// callback(null, a / b);
+//     }, 1000);
+// }
 
-// obtenerUsuario(1, (err, usuario) => {   if (err) return console.log(err.message);   
-// obtenerPedidos(usuario, (err, pedidos) => {     if (err) return
-// console.log(err.message);     obtenerDetalle(pedidos[0], (err, detalle) => {       if
-// (err) return console.log(err.message);       calcularEnvio(detalle, (err, envio) => { 
-// if (err) return console.log(err.message);         console.log('Costo de envío:',
+// dividir(10, 2, (err, resultado)=> {
+//     if (err) {
+//         console.log('Error:', err.message);
+//         return;
+//     }
+//     console.log('Resultado:', resultado);
+// });
+
+// obtenerUsuario(1, (err, usuario) => {   
+//     if (err) return console.log(err.message);   
+// obtenerPedidos(usuario, (err, pedidos) => {     
+//     if (err) return
+// console.log(err.message);    
+// obtenerDetalle(pedidos[0], (err, detalle) => {      
+// if
+// (err) return console.log(err.message);      
+// calcularEnvio(detalle, (err, envio) => { 
+// if (err) return console.log(err.message);         
+// console.log('Costo de envío:',
 // envio); 
 // }); 
 // }); 
 // }); 
 // }); 
+
+//3//
+
+function dividir(a, b) {
+    return new Promise((resolve, reject) =>
+    {  setTimeout(() => {        
+        if (b === 0) {
+
+            reject(new Error('No se puede dividir entre cero'));
+        } 
+        else {
+            resolve(a / b);
+        }
+    }, 1000); 
+} );
+}
+
+dividir(10, 0)
+.then((resultado) => console.log('Resultado:', resultado))
+.catch((err) => console.log('Error:', err.message))
+.finally(() => console.log('Operacion terminada'));
+
