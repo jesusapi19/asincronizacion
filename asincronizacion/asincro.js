@@ -33,3 +33,14 @@ dividir(10, 2, (err, resultado)=> {
     }
     console.log('Resultado:', resultado);
 });
+
+// obtenerUsuario(1, (err, usuario) => {   if (err) return console.log(err.message);   
+// obtenerPedidos(usuario, (err, pedidos) => {     if (err) return
+// console.log(err.message);     obtenerDetalle(pedidos[0], (err, detalle) => {       if
+// (err) return console.log(err.message);       calcularEnvio(detalle, (err, envio) => { 
+// if (err) return console.log(err.message);         console.log('Costo de envío:',
+// envio); 
+// }); 
+// }); 
+// }); 
+// }); 
