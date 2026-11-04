@@ -56,22 +56,41 @@
 
 //3//
 
-function dividir(a, b) {
-    return new Promise((resolve, reject) =>
-    {  setTimeout(() => {        
-        if (b === 0) {
+// function dividir(a, b) {
+//     return new Promise((resolve, reject) =>
+//     {  setTimeout(() => {        
+//         if (b === 0) {
 
-            reject(new Error('No se puede dividir entre cero'));
-        } 
-        else {
-            resolve(a / b);
-        }
-    }, 1000); 
-} );
-}
+//             reject(new Error('No se puede dividir entre cero'));
+//         } 
+//         else {
+//             resolve(a / b);
+//         }
+//     }, 1000); 
+// } );
+// }
 
-dividir(10, 0)
-.then((resultado) => console.log('Resultado:', resultado))
-.catch((err) => console.log('Error:', err.message))
-.finally(() => console.log('Operacion terminada'));
+// dividir(10, 0)
+// .then((resultado) => console.log('Resultado:', resultado))
+// .catch((err) => console.log('Error:', err.message))
+// .finally(() => console.log('Operacion terminada'));
 
+//varias promesas //
+
+// const esperar = (ms, valor) => 
+// new Promise((resolve) => setTimeout(() => resolve(valor), ms)); 
+
+// console.time('total'); 
+// Promise.all([esperar(2000, 'A'), esperar(1000, 'B'), esperar(1500, 'C')]) 
+// .then((resultados) => { 
+//     console.log(resultados); 
+//     console.timeEnd('total'); 
+// });
+
+
+//ejemplo//
+// obtenerUsuario(1)
+// .then((usuario) => {
+//     obtenerPedidos(usuario); 
+// })
+// .then((pedidos) => console.log(pedidos));
