@@ -438,46 +438,49 @@
 
 
 
-const axios = require('axios');
+// const axios = require('axios');
 
-// EJERCICIO 8
-async function buscarPelicula(nombrePeli) {
-const apiKey = '1f8918ee50b431fdcfac15d953d440b5';
-const url = `https://api.themoviedb.org/3/search/movie`;
+// // EJERCICIO 8
+// async function buscarPelicula(nombrePeli) {
+// const apiKey = '1f8918ee50b431fdcfac15d953d440b5';
+// const url = `https://api.themoviedb.org/3/search/movie`;
 
-try {
-const respuesta = await axios.get(url, {
-params: {
-api_key: apiKey,
-query: nombrePeli,
-language: 'es-MX'
-}
-});
+// try {
+// const respuesta = await axios.get(url, {
+// params: {
+// api_key: apiKey,
+// query: nombrePeli,
+// language: 'es-MX'
+// }
+// });
 
-if (respuesta.data.results.length === 0) {
-console.log('No se encontró la película');
-return;
-}
+// if (respuesta.data.results.length === 0) {
+// console.log('No se encontró la película');
+// return;
+// }
 
-const peli = respuesta.data.results[0];
-const anio = peli.release_date ? peli.release_date.split('-')[0] : 'Desconocido';
+// const peli = respuesta.data.results[0];
+// const anio = peli.release_date ? peli.release_date.split('-')[0] : 'Desconocido';
 
-console.log('PELÍCULA ENCONTRADA');
-console.log(`Título: ${peli.title}`);
-console.log(`Año de estreno: ${anio}`);
-console.log(`Sinopsis: ${peli.overview}`);
+// console.log('PELÍCULA ENCONTRADA');
+// console.log(`Título: ${peli.title}`);
+// console.log(`Año de estreno: ${anio}`);
+// console.log(`Sinopsis: ${peli.overview}`);
 
-} catch (error) {
-console.log('Error de red o en la petición:', error.message);
-}
-}
+// } catch (error) {
+// console.log('Error de red o en la petición:', error.message);
+// }
+// }
 
-buscarPelicula('Interestelar');
+// buscarPelicula('Interestelar');
 
 
-// --- EJERCICIO 9: Noticias con NewsAPI ---
+
+// const axios = require('axios');
+
+// //EJERCICIO 9
 // async function buscarNoticias(palabraClave) {
-// const apiKey = 'AQUI_PEGAS_TU_API_KEY_DE_NEWSAPI';
+// const apiKey = '972bbffb06b644159a365bdbae54f19b';
 // const url = `https://newsapi.org/v2/everything`;
 
 // try {
@@ -509,3 +512,4 @@ buscarPelicula('Interestelar');
 // }
 // }
 
+// buscarNoticias('musica');
